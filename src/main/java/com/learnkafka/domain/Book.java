@@ -1,5 +1,8 @@
 package com.learnkafka.domain;
 
+import lombok.Builder;
+
+@Builder
 public class Book {
 
 	private Integer bookId;
