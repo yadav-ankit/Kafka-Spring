@@ -4,6 +4,13 @@ Embedded Kafka is used only in Integration tests while on normal use cases you h
 Zookeper.
 
 
+Imp Links
+Imp Links
+- https://stackoverflow.com/questions/38024514/understanding-kafka-topics-and-partitions
+- https://stackoverflow.com/questions/25789907/how-does-spring-boot-conditionalonclass-work/25790672
+- https://stackoverflow.com/questions/59858907/kafka-number-of-partitions-are-more-than-no-of-broker
+
+
 Start up the Zookeeper.
 zookeeper-server-start.bat ..\..\config\zookeeper.properties
 Start up the Kafka Broker.
