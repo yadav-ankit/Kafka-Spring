@@ -4,7 +4,9 @@ public class LibraryEvents {
 
 	
 	private Integer libraryEventId;
+
 	long hhj;
+
 
 //	@NotNull
 //	@Valid
