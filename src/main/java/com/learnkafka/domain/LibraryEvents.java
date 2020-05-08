@@ -4,6 +4,9 @@ public class LibraryEvents {
 
 	
 	private Integer libraryEventId;
+
+//	@NotNull
+//	@Valid
 	private Book book;
 	
 	

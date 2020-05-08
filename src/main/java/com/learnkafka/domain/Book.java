@@ -1,12 +1,14 @@
 package com.learnkafka.domain;
 
-import lombok.Builder;
-
-@Builder
 public class Book {
 
+//	@NotNull
 	private Integer bookId;
+
+//	@NotBlank
 	private String bookName;
+
+//	@NotBlank
 	private String bookAuthor;
 	
 	

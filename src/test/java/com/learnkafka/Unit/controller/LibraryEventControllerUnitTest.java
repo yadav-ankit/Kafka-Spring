@@ -1,6 +1,5 @@
 package com.learnkafka.Unit.controller;
 
-import static org.hamcrest.CoreMatchers.isA;
 import static org.mockito.Mockito.doNothing;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -47,7 +46,7 @@ public class LibraryEventControllerUnitTest {
 
 		String jsonVal = objectMapper.writeValueAsString(libevents);
 
-		doNothing().when(libraryEventProducer).sendData((LibraryEvents) isA(LibraryEvents.class));
+		doNothing().when(libraryEventProducer).sendData(libevents);
 
 		mockmvc.perform(post("/dev/libraryevents").content(jsonVal).contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isCreated());
