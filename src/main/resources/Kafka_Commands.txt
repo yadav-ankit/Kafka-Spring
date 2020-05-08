@@ -1,3 +1,9 @@
+
+In this Project
+Embedded Kafka is used only in Integration tests while on normal use cases you have to start up all the brokers and
+Zookeper.
+
+
 Start up the Zookeeper.
 zookeeper-server-start.bat ..\..\config\zookeeper.properties
 Start up the Kafka Broker.
