@@ -4,6 +4,7 @@ public class LibraryEvents {
 
 	
 	private Integer libraryEventId;
+	float UUUU;
 
 //	@NotNull
 //	@Valid
@@ -12,6 +13,7 @@ public class LibraryEvents {
 	
 	
 	public Book getBook() {
+		int pppp = 333;
 		return book;
 	}
 	public void setBook(Book book) {
