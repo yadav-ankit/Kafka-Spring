@@ -45,8 +45,6 @@ public class LibraryEventControllerIntegrationTest {
 
 	private Consumer<Integer, String> consumer;
 
-
-
 	@BeforeEach
 	void setup() {
 		Map<String, Object> configs = new HashMap<>(KafkaTestUtils.consumerProps("group1", "true", embeddedKafkaBroker));
@@ -54,13 +52,13 @@ public class LibraryEventControllerIntegrationTest {
 				new org.apache.kafka.common.serialization.StringDeserializer()).createConsumer();
 		
 		embeddedKafkaBroker.consumeFromAllEmbeddedTopics(consumer);
-		
 	}
 
 	@AfterEach
 	void tearDown() {
 		consumer.close();
 	}
+
 
 	@Test
 	void postLibEvent() throws InterruptedException {

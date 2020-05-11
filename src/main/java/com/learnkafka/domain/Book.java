@@ -1,11 +1,17 @@
 package com.learnkafka.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+
+@Entity
 public class Book {
 
 //	@NotNull
+	@Id
 	private Integer bookId;
 
-//	@NotBlank
+	@NotBlank
 	private String bookName;
 
 //	@NotBlank

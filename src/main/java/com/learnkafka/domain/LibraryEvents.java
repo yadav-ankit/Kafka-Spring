@@ -1,15 +1,25 @@
 package com.learnkafka.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
+import lombok.ToString;
+
+@Entity
 public class LibraryEvents {
 
-	
+	@Id
+	@GeneratedValue
 	private Integer libraryEventId;
 
-	long hhj;
-
-
-//	@NotNull
-//	@Valid
+	@NotNull
+	@Valid
+	@OneToOne
+	@ToString.Exclude
 	private Book book;
 	
 	

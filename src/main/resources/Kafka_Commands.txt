@@ -11,10 +11,32 @@ Imp Links
 - https://stackoverflow.com/questions/59858907/kafka-number-of-partitions-are-more-than-no-of-broker
 
 
+Consumer-Groups
+Say you have one consumer instance and a topic with 4 partitions.
+So one consumer will be listening and polling to 4 partitions.
+
+You can make this faster by adding 1 more consumer instance and linking these 2 consumer with a group-id.
+So these two makes a consumer group.
+
+In java just start two instance of your java app.
+When you start one more instance the kafka broker automatically rebalance.
+
+
+Kafka Factory can be used to do above thing also.
+In the consumer-config class. @Configuration
+
+factory.setConcureency(3);   // 3 because 3 Partitions are up and running 
+
+--------------------------------------------------
+
 Start up the Zookeeper.
 zookeeper-server-start.bat ..\..\config\zookeeper.properties
+
+
 Start up the Kafka Broker.
 kafka-server-start.bat ..\..\config\server.properties
+
+
 How to create a topic ?
 kafka-topics.bat --create --topic test-topic -zookeeper localhost:2181 --replication-factor 1 --partitions 4
 How to instantiate a Console Producer?
@@ -43,6 +65,7 @@ broker.id=1
 listeners=PLAINTEXT://localhost:9093
 log.dirs=/tmp/kafka-logs-1
 auto.create.topics.enable=false
+
 Starting up the new Broker
 Provide the new server.properties thats added.
 ./kafka-server-start.sh ../config/server-1.properties
@@ -56,19 +79,27 @@ Provide the new server.properties thats added.
 
 Make sure you are inside the bin/windows directory.
 List the topics in a cluster
+
 kafka-topics.bat --zookeeper localhost:2181 --list
+
+
 Describe topic
 The below command can be used to describe all the topics.
 kafka-topics.bat --zookeeper localhost:2181 --describe
 The below command can be used to describe a specific topic.
 kafka-topics.bat --zookeeper localhost:2181 --describe --topic <topic-name>
+
 Alter the min insync replica
 kafka-topics.bat --alter --zookeeper localhost:2181 --topic library-events --config min.insync.replicas=2
+
 Delete a topic
 kafka-topics.bat --zookeeper localhost:2181 --delete --topic <topic-name>
+
+
 How to view consumer groups
 kafka-consumer-groups.bat --bootstrap-server localhost:9092 --list
 Consumer Groups and their Offset
 kafka-consumer-groups.bat --bootstrap-server localhost:9092 --describe --group console-consumer-27773
+
 Viewing the Commit Log
 kafka-run-class.bat kafka.tools.DumpLogSegments --deep-iteration --files /tmp/kafka-logs/test-topic-0/0000000000000000000
