@@ -26,6 +26,7 @@ public class MyConfig {
 
 		ConcurrentKafkaListenerContainerFactory<Object, Object> factory = new ConcurrentKafkaListenerContainerFactory<>();
 
+		// factory.setReplyTemplate(replyTemplate);
 	}
 
 
